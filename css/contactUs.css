@@ -1,0 +1,13 @@
+.jumbotron{
+  background-image: url("../images/mountains1.jpeg");
+  background-color: rgb(164, 181, 205);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+#jumboInfo{
+  color: rgb(240, 228, 229);
+}

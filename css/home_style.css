@@ -1,0 +1,16 @@
+/* Brijesh   */
+.jumbotron{
+  /* background-image: url("../images/airplane_clouds.jpg"); */
+  background-image: url("../images/plane.jpg");
+  /* background-image: url("../images/mountain.jpg");
+  /* background-color:rgb(161, 186, 193);
+  background-blend-mode: multiply; */
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+#jumboInfo{
+  color: black;
+}

@@ -1,0 +1,33 @@
+/*Chris Earle OOSD 5/26/2018*/
+/*this class is required so that inputs are aligned*/
+/* label.field{
+    text-align: right;
+    width: 125px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/*aligns with input fields*/
+/* .buttons{
+    /*display: block;
+    margin-left: 150px;*/
+    /* text-align: center;
+} */
+
+/* .formline{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+select.sizing{
+        height:24px;
+        width:198px;
+}
+
+.form_column{
+    top:0;
+    display: inline-block;
+    /*chrome does not like halving the window at %50*/
+    /* width: 49%;
+    vertical-align: top;
+} */

@@ -1,0 +1,56 @@
+some stuff
+
+<div id="registration-form">
+  <label for="username">Enter Username :
+  <input name="username" type="text" id="username" maxlength="15"> <span id="user-result"></span>
+  </label>
+</div>
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    var x_timer;
+    $("#username").keyup(function (e){
+        clearTimeout(x_timer);
+        var user_name = $(this).val();
+        x_timer = setTimeout(function(){
+            check_username_ajax(user_name);
+        }, 1000);
+    });
+
+function check_username_ajax(username){
+    $("#user-result").html('<img src="ajax-loader.gif" />');
+    $.post('username-checker.php', {'username':username}, function(data) {
+      $("#user-result").html(data);
+    });
+}
+});
+</script>
+
+
+
+
+
+if(isset($_POST["username"]))
+{
+    if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
+        die();
+    }
+    $mysqli = new mysqli('host' , 'sql_username', 'sql_pass', 'database');
+    if ($mysqli->connect_error){
+        die('Could not connect to database!');
+    }
+
+    $username = filter_var($_POST["username"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH);
+
+    $statement = $mysqli->prepare("SELECT username FROM user_list WHERE username=?");
+    $statement->bind_param('s', $username);
+    $statement->execute();
+    $statement->bind_result($username);
+    if($statement->fetch()){
+        die('<img src="public/images/not-available.png" />');
+    }else{
+        die('<img src="public/images/available.png" />');
+    }
+}
